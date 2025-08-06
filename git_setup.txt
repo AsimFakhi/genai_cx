@@ -1,0 +1,154 @@
+asim@MacBook-Air genai_cx % uv venv
+Using CPython 3.11.13 interpreter at: /opt/homebrew/opt/python@3.11/bin/python3.11
+Creating virtual environment at: .venv
+Activate with: source .venv/bin/activate
+asim@MacBook-Air genai_cx % git init
+Initialized empty Git repository in /Users/asim/Desktop/genai_cx/.git/
+asim@MacBook-Air genai_cx % ls
+asim@MacBook-Air genai_cx % ls -a
+.       ..      .git    .venv
+asim@MacBook-Air genai_cx % git add .gitignore 
+asim@MacBook-Air genai_cx % git commit -m "Added .gitignore to exclude .venv and other files"
+Author identity unknown
+
+*** Please tell me who you are.
+
+Run
+
+  git config --global user.email "you@example.com"
+  git config --global user.name "Your Name"
+
+to set your account's default identity.
+Omit --global to set the identity only in this repository.
+
+fatal: unable to auto-detect email address (got 'asim@MacBook-Air.(none)')
+asim@MacBook-Air genai_cx % git config --global user.name "Asim Fakhi"
+asim@MacBook-Air genai_cx % git config --global user.email "asimfakhi11@gmail.com"
+asim@MacBook-Air genai_cx % git commit -m "Added .gitignore to exclude .venv and other files"
+[main (root-commit) 820b8ee] Added .gitignore to exclude .venv and other files
+ 1 file changed, 207 insertions(+)
+ create mode 100644 .gitignore
+asim@MacBook-Air genai_cx % git log
+commit 820b8ee070ebf120ccd586ba8a6f681b01670f72 (HEAD -> main)
+Author: Asim Fakhi <asimfakhi11@gmail.com>
+Date:   Thu Aug 7 00:40:13 2025 +0530
+
+    Added .gitignore to exclude .venv and other files
+ssh-keygen -t ed25519 -C "asimfakhi11@gmail.com"
+
+ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIFZtig09TRraEAWPxaREm+jeXT/1alv6vp8xv9JYuyzb asimfakhi11@gmail.com
+ssh -T git@github.com
+ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIFZtig09TRraEAWPxaREm+jeXT/1alv6vp8xv9JYuyzb asimfakhi11@gmail.com
+ssh-keygen -t ed25519-sk -C "asimfakhi11@gmail.com"
+
+ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIFZtig09TRraEAWPxaREm+jeXT/1alv6vp8xv9JYuyzb asimfakhi11@gmail.com
+asim@MacBook-Air genai_cx % git remote add origin https://github.com/AsimFakhi/genai_cx.git
+asim@MacBook-Air genai_cx % ls -al ~/.ssh
+ls: /Users/asim/.ssh: No such file or directory
+asim@MacBook-Air genai_cx % ssh-keygen -t ed25519 -C "asimfakhi11@gmail.com"
+Generating public/private ed25519 key pair.
+Enter file in which to save the key (/Users/asim/.ssh/id_ed25519): 
+Created directory '/Users/asim/.ssh'.
+Enter passphrase for "/Users/asim/.ssh/id_ed25519" (empty for no passphrase): 
+Enter same passphrase again: 
+Your identification has been saved in /Users/asim/.ssh/id_ed25519
+Your public key has been saved in /Users/asim/.ssh/id_ed25519.pub
+The key fingerprint is:
+SHA256:7QQpNCs63O1MavUUOjC/M4bIGc5ZbkrU0Z4xco0K+wc asimfakhi11@gmail.com
+The key's randomart image is:
++--[ED25519 256]--+
+|      o          |
+|     o = .       |
+|  . * O =        |
+| . * % * +       |
+|  B E X S o      |
+| = X O = o       |
+|  O B O . .      |
+| . + o o         |
+|  .              |
++----[SHA256]-----+
+asim@MacBook-Air genai_cx % pbcopy < ~/.ssh/id_ed25519.pub
+asim@MacBook-Air genai_cx % ssh -T git@github.com
+
+The authenticity of host 'github.com (20.207.73.82)' can't be established.
+ED25519 key fingerprint is SHA256:+DiY3wvvV6TuJJhbpZisF/zLDA0zPMSvHdkr4UvCOqU.
+This key is not known by any other names.
+Are you sure you want to continue connecting (yes/no/[fingerprint])? no
+Host key verification failed.
+asim@MacBook-Air genai_cx % eval "$(ssh-agent -s)"
+Agent pid 5999
+asim@MacBook-Air genai_cx % ssh-add --apple-use-keychain ~/.ssh/id_ed25519
+Identity added: /Users/asim/.ssh/id_ed25519 (asimfakhi11@gmail.com)
+asim@MacBook-Air genai_cx % ssh -T git@github.com                         
+The authenticity of host 'github.com (20.207.73.82)' can't be established.
+ED25519 key fingerprint is SHA256:+DiY3wvvV6TuJJhbpZisF/zLDA0zPMSvHdkr4UvCOqU.
+This key is not known by any other names.
+Are you sure you want to continue connecting (yes/no/[fingerprint])? no
+Host key verification failed.
+asim@MacBook-Air genai_cx % cd ~/.ssh            
+asim@MacBook-Air .ssh % ls
+id_ed25519      id_ed25519.pub
+asim@MacBook-Air .ssh % pbcopy < ~/.ssh/id_ed25519.pub                
+asim@MacBook-Air .ssh % ssh -T git@github.com                         
+The authenticity of host 'github.com (20.207.73.82)' can't be established.
+ED25519 key fingerprint is SHA256:+DiY3wvvV6TuJJhbpZisF/zLDA0zPMSvHdkr4UvCOqU.
+This key is not known by any other names.
+Are you sure you want to continue connecting (yes/no/[fingerprint])? no
+Host key verification failed.
+asim@MacBook-Air .ssh % eval "$(ssh-agent -s)"                        
+Agent pid 6441
+asim@MacBook-Air .ssh % open ~/.ssh/config
+The file /Users/asim/.ssh/config does not exist.
+asim@MacBook-Air .ssh % touch ~/.ssh/config
+asim@MacBook-Air .ssh % open ~/.ssh/config 
+asim@MacBook-Air .ssh % open ~/.ssh/config
+asim@MacBook-Air .ssh % ssh-add --apple-use-keychain ~/.ssh/id_ed25519
+
+Identity added: /Users/asim/.ssh/id_ed25519 (asimfakhi11@gmail.com)
+asim@MacBook-Air .ssh % ssh-keygen -t ed25519-sk -C "asimfakhi11@gmail.com"
+Generating public/private ed25519-sk key pair.
+You may need to touch your authenticator to authorize key generation.
+No FIDO SecurityKeyProvider specified
+Key enrollment failed: invalid format
+asim@MacBook-Air .ssh % open ~/.ssh/config             
+asim@MacBook-Air .ssh % open ~/.ssh       
+asim@MacBook-Air .ssh % ssh-add -K  ~/.ssh/id_ed25519  
+
+WARNING: The -K and -A flags are deprecated and have been replaced
+         by the --apple-use-keychain and --apple-load-keychain
+         flags, respectively.  To suppress this warning, set the
+         environment variable APPLE_SSH_ADD_BEHAVIOR as described in
+         the ssh-add(1) manual page.
+Identity added: /Users/asim/.ssh/id_ed25519 (asimfakhi11@gmail.com)
+asim@MacBook-Air .ssh % ssh-add --apple-use-keychain ~/.ssh/id_ed25519     
+
+Identity added: /Users/asim/.ssh/id_ed25519 (asimfakhi11@gmail.com)
+asim@MacBook-Air .ssh % git push -u origin main
+fatal: not a git repository (or any of the parent directories): .git
+asim@MacBook-Air .ssh % cd ~/Desktop/genai_cx 
+asim@MacBook-Air genai_cx % git push -u origin main
+remote: No anonymous write access.
+fatal: Authentication failed for 'https://github.com/AsimFakhi/genai_cx.git/'
+asim@MacBook-Air genai_cx % ssh -T git@github.com                        
+The authenticity of host 'github.com (20.207.73.82)' can't be established.
+ED25519 key fingerprint is SHA256:+DiY3wvvV6TuJJhbpZisF/zLDA0zPMSvHdkr4UvCOqU.
+This key is not known by any other names.
+Are you sure you want to continue connecting (yes/no/[fingerprint])? yes
+Warning: Permanently added 'github.com' (ED25519) to the list of known hosts.
+Hi AsimFakhi! You've successfully authenticated, but GitHub does not provide shell access.
+asim@MacBook-Air genai_cx % git push -u origin main
+remote: No anonymous write access.
+fatal: Authentication failed for 'https://github.com/AsimFakhi/genai_cx.git/'
+asim@MacBook-Air genai_cx % ssh -T git@github.com  
+Hi AsimFakhi! You've successfully authenticated, but GitHub does not provide shell access.
+asim@MacBook-Air genai_cx % git push -u origin main
+Enumerating objects: 3, done.
+Counting objects: 100% (3/3), done.
+Delta compression using up to 10 threads
+Compressing objects: 100% (2/2), done.
+Writing objects: 100% (3/3), 2.12 KiB | 2.12 MiB/s, done.
+Total 3 (delta 0), reused 0 (delta 0), pack-reused 0
+To https://github.com/AsimFakhi/genai_cx.git
+ * [new branch]      main -> main
+branch 'main' set up to track 'origin/main'.
+asim@MacBook-Air genai_cx % 
